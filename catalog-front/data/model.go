@@ -16,6 +16,12 @@ type Sku struct {
 	Attributes []Attribute `json:"attributes"`
 	MediaSets  []MediaSet  `json:"mediaSets"`
 	Price      Price       `json:"price"`
+	Inventory  Inventory   `json:"inventory"`
+}
+
+//IsEmpty check is any value is attribute to struct
+func (s Sku) IsEmpty() bool {
+	return s.ID == ""
 }
 
 // Attribute definition
@@ -59,4 +65,5 @@ type Inventory struct {
 	PreOrder      bool `json:"preOrder"`
 	PreLaunch     bool `json:"preLaunch"`
 	BackOrder     bool `json:"backOrder"`
+	OmniStock     bool `json:"omniStock"`
 }
