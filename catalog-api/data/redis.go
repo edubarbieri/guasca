@@ -3,7 +3,6 @@ package data
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 
@@ -27,7 +26,7 @@ func init() {
 	})
 	_, err := client.Ping(ctx).Result()
 	if err != nil {
-		fmt.Println("ERROR testing redis connections")
+		log.Fatalf("Error on test redis connection %v", err)
 	}
 }
 
@@ -44,7 +43,5 @@ func GetProduct(productID string) (Product, error) {
 		return product, err
 	}
 	json.Unmarshal([]byte(productJSON), &product)
-
 	return product, nil
-
 }
