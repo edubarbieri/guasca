@@ -1,7 +1,7 @@
 package main
 
 import (
-	"catalog-front/controller"
+	"catalog-api/controller"
 	"context"
 
 	"github.com/gin-gonic/gin"

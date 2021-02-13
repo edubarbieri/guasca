@@ -118,7 +118,7 @@ public class FromSiteService implements ForceUpdateService {
 			String url = "https://www.lojasrenner.com.br/rest/model/lrsa/api/CatalogActor/product?productId=";
 			RestTemplate restTemplate = new RestTemplate();
 			HttpHeaders headers = new HttpHeaders();
-			headers.setBearerAuth("4e46176b-3cdb-4ee5-94be-68f78cbeb957");
+			headers.setBearerAuth("38ba05f2-a547-47ec-b960-452547766415");
 			HttpEntity<?> entity = new HttpEntity<>(headers);
 
 			ResponseEntity<ProductCataloResponse> response = restTemplate.exchange(url + productId, HttpMethod.GET,

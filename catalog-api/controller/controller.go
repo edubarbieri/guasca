@@ -9,8 +9,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
 
-	"catalog-front/data"
-	"catalog-front/ingestion"
+	"catalog-api/data"
+	"catalog-api/ingestion"
 
 	"github.com/thoas/go-funk"
 )
@@ -22,7 +22,7 @@ func ProductBoxDataDesk(c *gin.Context) {
 	skuID := c.Query("skuId")
 	skuList := c.Query("skuList")
 
-	product, err := data.GetProduct(productID)
+	product, err := data.GetProductElasticSearch(productID)
 	if err == redis.Nil {
 		log.Printf("not found product with id %s in redis", productID)
 		err2 := ingestion.ForceLoadProduct(productID)
